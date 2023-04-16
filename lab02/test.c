@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(void) {
+    double test = 1.1;
+    double test1 = -1.1;
+    if (test > test1) {
+        printf("True");
+    } else {
+        printf("False");
+    }
+    return 0;
+
+     
+}
+

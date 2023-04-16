@@ -1,0 +1,25 @@
+// leap_year.c
+// Arya Bodhi Gunawan, z5240037 (JUNE 8, 2021)
+// A program that will check if the year given by they
+// user is a leap year or not
+
+#include <stdio.h>
+
+int main(void) {
+    int year_picked;
+    printf("Enter year: ");
+    scanf("%d", &year_picked);
+    
+    if(year_picked % 400 == 0) {
+        printf("%d is a leap year.\n", year_picked);
+    } else if(year_picked % 100 == 0) {
+        printf("%d is not a leap year.\n", year_picked);
+    } else if(year_picked % 4 == 0) {
+        printf("%d is a leap year.\n", year_picked);
+    } else {
+        printf("%d is not a leap year.\n", year_picked);
+    }
+    return 0;
+}
+
+
