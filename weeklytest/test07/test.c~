@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void) {
+
+    int input_1 = getchar();
+    int input_2 = getchar();
+    while (input_1 != EOF && input_2 != EOF) {
+        if (input_1 < input_2) {
+            putchar(input_1);
+        } else {
+            putchar(input_2);
+        }
+        input_1 = getchar();
+        input_2 = getchar();
+    }
+
+    printf('\n');
+}
