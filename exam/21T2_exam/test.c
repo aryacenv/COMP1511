@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n == 1) {
+        return n;
+    }
+    return (n * factorial(n-1));
+}
+
+int main(void) {
+    int a = 1;
+    int b;
+    b = factorial(a);
+    printf("%d\n", b);
+    return 0;
+}
+
+    

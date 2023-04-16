@@ -1,0 +1,40 @@
+// exam_q3.c
+//
+// This program was written by z5240037
+// on 18-08-2021
+
+#include <stdio.h>
+#define MAX_SIZE 10000
+int main(void) {
+    int even[MAX_SIZE];
+    int odd[MAX_SIZE];
+    int num;
+    int parity = 0;
+    int count_even = 0;
+    int count_odd = 0;
+    scanf("%d", &num);
+    while (num != 0) {
+        if (parity % 2 == 0) {
+            even[count_even] = num;
+            count_even++;
+        }
+        else {
+            odd[count_odd] = num;
+            count_odd++;
+        }
+        parity++;
+        scanf("%d", &num);
+    }
+    int count = 0;
+    while (count < count_even) {
+        printf("%d ", even[count]);
+        count++;
+    }
+    count = 0;
+    while (count < count_odd) {
+        printf("%d ", odd[count]);
+        count++;
+    }
+    printf("\n");
+    return 0;
+}

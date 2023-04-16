@@ -1,0 +1,41 @@
+// COMP1511 Week 4 Lab: painterbot
+//
+// This program was written by Arya Bodhi Gunawan (z5240037)
+// on 27 JUNE 2021
+//
+// This program will scan in indices until EOF and then print out a 
+// one dimensional array which has 36 '0's, 
+// except at the given indices it has a '1'
+
+#include <stdio.h>
+
+int main(void) {
+    int array_1[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+                     };
+    int scanned_in_value;    
+    int count = 0;
+    int count1 = 0;
+
+    while (count < 36) {
+        int result = scanf("%d", &scanned_in_value);
+        if (result == 1) {                       
+            array_1[scanned_in_value] = 1;
+            count++;
+        } else {
+            count++;
+        }
+    }
+    while (count1 < 36) {
+        if (count1 == 35) {
+            printf("%d\n", array_1[count1]);            
+        } else {
+            printf("%d ", array_1[count1]);            
+        }
+        count1++;
+    }
+    return 0;
+}
+                     
+    

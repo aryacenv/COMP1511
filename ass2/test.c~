@@ -1,0 +1,53 @@
+    if (pokemon->num_pokemon == 0) {
+        struct dexnode *node = NULL;
+        struct dexnode *newdexnode = create_new_dexnode(pokemon, node);
+        pokedex->head = newdexnode;
+        pokedex->selected_dexnode = newdexnode;
+        pokedex->current = newdexnode;
+    } else {
+        current_pokemon = get_current_pokemon(pokedex);
+        struct dexnode *node = pokedex->head;
+        while (node != NULL && node->pokemon != current_pokemon) {
+            node = node->next;
+        }
+        struct dexnode *newdexnode = create_new_dexnode(pokemon, NULL);
+        if (node == pokedex->head) {
+            newdexnode->next = node;
+            node->previous = newdexnode;
+            newdexnode->previous = NULL;
+            pokedex->leading_node = dexnode;
+            pokedex->head = dexnode;
+        } else {
+            struct dexnode *current_node = node;
+            struct dexnode *newdexnode = create_new_dexnode(pokemon, node->previous);
+            if (newdexnode != NULL && newdexnode->previous != NULL)
+                newdexnode->previous = node->previous;
+            if(newdexnode != NULL && newdexnode->next != NULL)
+                newdexnode->next = current_node;
+            if(current_node != NULL && current_node->previous != NULL)
+                current_node->previous = newdexnode;
+            if(node != NULL && node->previous->next != NULL)
+                node->previous->next = newdexnode;
+        }
+    }
+    pokedex->num_pokemon++;
+
+int count_pokemon_of_type(Pokedex pokedex, char *type) {
+    int count = 0;
+    const char *inputted_type = type_code_to_str(type);
+    Pokemon pokemon;
+    const char *type_1;
+    const char *type_2;
+    struct dexnode *node = pokedex->head;
+    while (node != NULL) {
+        pokemon = node->pokemon;
+        type_1 = type_code_to_str(pokemon_first_type(pokemon));
+        type_2 = type_code_to_str(pokemon_second_type(pokemon));
+        if (compare_str(inputted_type, type_1) == 1 ||
+            compare_str(inputted_type, type_2) == 1) {
+            count++;
+        }
+    }
+    node = node->next;
+    return count;
+}
