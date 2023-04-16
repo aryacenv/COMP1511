@@ -1,0 +1,49 @@
+// COMP1511 ASSIGNMENT 1: minesweeper
+//
+// This program was written by Arya Bodhi Gunawan (z5240037)
+// on 1 JULY 2021
+//
+
+#include <stdio.h>
+
+int main(void) {
+    int mines;
+    int count = 1;
+    int x;
+    int y;
+    int count_1 = 1;
+    int field[8][8] = {{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},
+    {1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},
+    {1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1}}
+    ;
+    int i, j, row = 8, col = 8;
+    printf("Welcome to minesweeper!\n");
+    printf("How many mines? ");
+    scanf("%d", &mines);
+    printf("Enter pairs:\n");
+    while (count <= mines) {
+        scanf("%d %d", &x, &y);
+        count++;
+        }
+    printf("Game Started\n");
+    
+    //while (count_1 < 8) {
+        //if (result == 2) {
+            //field[x][y] = 2;
+            //count_1++;
+        //} else {
+            //count_1++;
+        //}
+    //}        
+    
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            printf("%2d", field[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+        
+    

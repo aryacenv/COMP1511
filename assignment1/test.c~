@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(void) {
+    int field[8][8] = {{1,1,1,1,1,1,1,1},{2,2,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1},{1,1,1,1,1,1,1,1}};
+    int i, j, row = 8, col = 8;
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < col; j++) {
+            printf("%2d", field[i][j]);
+        }
+        printf("\n");
+    }
+    int x = 1;
+    int count = 0;
+    for (i = x; i < x+1; i++) {
+        for (j = 0; j < 8; j++) {
+            if (field[i][j] == 2) {
+                count++;
+            } else { 
+                count = count + 0;
+            }
+        }
+    }
+    printf("%d", count);        
+    return 0;
+}
